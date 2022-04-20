@@ -7,9 +7,9 @@ namespace TestCoreAPI.Controllers
     public class SimpleMathController : Controller
     {
         [HttpGet(Name = "simpleMath")]
-        public int simpleMath(int operandOne, int operandTwo, char operation)
+        public float simpleMath(float operandOne, float operandTwo, char operation)
         {
-            int result;
+            float result;
 
             //Method 1 - switch statement
             switch (operation)
@@ -21,6 +21,10 @@ namespace TestCoreAPI.Controllers
                 case 'M':
                 case 'm':
                     result = operandOne * operandTwo;
+                    break;
+                case 'D':
+                case 'd':
+                    result = operandOne / operandTwo;
                     break;
                 default:
                     result = operandOne + operandTwo;
@@ -36,6 +40,10 @@ namespace TestCoreAPI.Controllers
             else if ((operation == 'M') || (operation == 'm'))
             {
                 result = operandOne * operandTwo;
+            }
+            else if ((operation == 'D') || (operation == 'd'))
+            {
+                result = operandOne / operandTwo;
             }
             else
             {
